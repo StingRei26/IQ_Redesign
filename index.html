@@ -768,6 +768,8 @@ body{
     }
 }
 
+
+
 /*-----> DESKTOP BREAKPOINT TWO (STATIC SIZED HERO CONTAINER) <-----*/
 @media(min-width: 900px){
     /* #desktopHeroContainer{
@@ -916,7 +918,7 @@ var creativeConfigObj = {
         //0
         {
             logo: {
-                url:  "https://static01.nyt.com/images/2018/02/26/style/26bachelor-topart-1/26bachelor-1-articleInline.jpg",
+                url:  "creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === 'xml_jsonp_mirror')?dataArray[i]['title']['$t']:dataArray['anyWork']['promotionalMedia']['crops'][2]['renditions'][0]['url']",
                 mobileHeight: "40px",
                 desktopHeight: "30px"
             },
@@ -1199,11 +1201,18 @@ function populateConfigObjArticleFramesWithFeedData(data){
        /* TO PULL THE HEADLINE */
        /* creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["title"]["$t"]:dataArray["anyWork"]["headline"]["default"], color: "#FFF"};*/
 
+       /* TO PULL IMAGES 
+       /*"creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === 'xml_jsonp_mirror')?dataArray[i]['title']['$t']:dataArray['anyWork']['promotionalMedia']['crops'][2]['renditions'][0]['url']"*/
+
+
        
         }
     }
 }
 
+
+
+ 
 
 /*-----> SET UP <-----*/
 
