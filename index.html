@@ -871,7 +871,10 @@ var creativeConfigObj = {
     // Feed URL should be entered as non-secure.  Function "getFeed" will modify to secrue where required.
     /* feedURL: "http://api.nytimes.com/svc/topstories/v2/home.json?api-key=infrapingkey", */
 
-    feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1538426419/graphQL_b90jyt.json",
+    /* feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1538426419/graphQL_b90jyt.json", */
+
+
+    feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539613411/Rei%20Test%20Creatives/10_15_2018_GraphQL.json", 
 
     // FeedVersion acceptable values are "json", "xml", "json_jsonp_mirror", "xml_jsonp_mirror".
     feedVersion: "json",
@@ -1190,12 +1193,14 @@ function populateConfigObjArticleFramesWithFeedData(data){
         dataArray = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?data["rss"]["channel"]["item"]:data["data"];
 
         for(var i=0; i<creativeConfigObj.articleFrames.length; i++){
-            creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["title"]["$t"]:dataArray["anyWork"]["headline"]["default"], color: "#FFF"};
+           var t =  creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["title"]["$t"]:dataArray["anyWorks"][i]["promotionalHeadline"], color: "#FFF"};
             /* creativeConfigObj.articleFrames[i].url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["link"]["$t"]:dataArray[i]["url"]; */
             /* creativeConfigObj.articleFrames[i].descriptor = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["description"]["$t"]:dataArray[i]["abstract"], color: "#FFF"}; */
        
        
        console.log(creativeConfigObj.articleFrames[i]);
+
+       console.log(t)
        
 
        /* TO PULL THE HEADLINE */
@@ -2085,3 +2090,8 @@ window.addEventListener("load", checkIfAdKitReady);
 
 </body>
 </html>
+
+
+
+
+test
