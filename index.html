@@ -1251,7 +1251,7 @@ function handleReturnedFeedData(data){
 // Feed data passed to this function can be in the form of JSON or XML
 
 
-
+/*reiniel*/
 
 function populateConfigObjArticleFramesWithFeedData(data){
     var dataArray = null;
@@ -1270,15 +1270,14 @@ function populateConfigObjArticleFramesWithFeedData(data){
         dataArray = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?data["rss"]["channel"]["item"]:data["data"]["anyWorks"];
 
         for(var i=0; i<creativeConfigObj.articleFrames.length; i++){
-           var t =  creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["promotionalHeadline"]["$t"]:dataArray[i]["promotionalHeadline"], color: "#FFF"};
+           
+              creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["promotionalHeadline"]["$t"]:dataArray[i]["promotionalHeadline"], color: "#FFF"};
               
               creativeConfigObj.articleFrames[i].logo.url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]['promotionalMedia']["$t"]:dataArray[i]['promotionalMedia']['crops'][1]['renditions'][0]['url']; 
              
               creativeConfigObj.articleFrames[i].url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["link"]["$t"]:dataArray[i]["url"]; 
              
              
-           
-           
             /* creativeConfigObj.articleFrames[i].descriptor = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["description"]["$t"]:dataArray[i]["abstract"], color: "#FFF"}; */
              
         
@@ -1292,7 +1291,7 @@ function populateConfigObjArticleFramesWithFeedData(data){
 
        /*console.log(creativeConfigObj.articleFrames[i]);*/
 
-       console.log(dataArray[i]['promotionalMedia']['crops'][1]['renditions'][0]['url']); 
+       console.log(dataArray[i]['promotionalMedia']['crops'][0]['renditions'][0]); 
       
        /*console.log(creativeConfigObj.articleFrames.length);*/
        
