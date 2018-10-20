@@ -854,6 +854,7 @@ var adId, rnd, uid, versionID;
 
 var feedCallBackFailsafeTimer; // Vairable to hold timeout for triggering of failsafe
 var failsafeDuration = 3000;   // Duration of time without response from data feed call to triggering of failsafe
+var dataArray; 
 
 var mobileTotalGalleryFrames;
 var mobileCurrentGalleryFrame = 1;
@@ -864,17 +865,87 @@ var desktopGalleryFramePosArr = [];
 
 var isIE10 = (navigator.userAgent.indexOf("MSIE 10") !== -1)?true:false;
 
+
 /*------------------------------*/
 /*-----> TEMPLATE CONFIG  <-----*/
 /*------------------------------*/
+function populateConfigObjArticleFramesWithFeedData(data){
+    var dataArray = null;
+
+    // The below is hard coded to pull specific data from pre determined feed nodes
+    // Any adjustments to the organization of the feeds requires revising the below to match
+    if(creativeConfigObj.feedVersion === "xml"){
+        dataArray = data.getElementsByTagName("item");
+
+        for(var i=0; i<creativeConfigObj.articleFrames.length; i++){
+            creativeConfigObj.articleFrames[i].headline = {copy:dataArray[i].getElementsByTagName("promotionalHeadline")[0].childNodes[0].nodeValue, color: "#FFF"};
+            creativeConfigObj.articleFrames[i].url = dataArray[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+            creativeConfigObj.articleFrames[i].descriptor = {copy:dataArray[i].getElementsByTagName("description")[0].childNodes[0].nodeValue, color: "#FFF"};
+        }
+    }else{
+        dataArray = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?data["rss"]["channel"]["item"]:data["data"]["anyWorks"];
+
+        for(var i=0; i<creativeConfigObj.articleFrames.length; i++){
+           var t =  creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["promotionalHeadline"]["$t"]:dataArray[i]["promotionalHeadline"], color: "#FFF"};
+             
+              creativeConfigObj.articleFrames[i].url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["link"]["$t"]:dataArray[i]["url"]; 
+            /* creativeConfigObj.articleFrames[i].descriptor = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["description"]["$t"]:dataArray[i]["abstract"], color: "#FFF"}; */
+             
+        
+        if (dataArray[i]['promotionalMedia']['__typename'] !== "Image") {
+
+            /*do something here*/
+        }     
+
+
+
+
+       /*console.log(creativeConfigObj.articleFrames[i]);*/
+
+       console.log(dataArray[i]['promotionalMedia']['crops'][1]['renditions'][0]['url']); 
+      
+       /*console.log(creativeConfigObj.articleFrames.length);*/
+       
+       /*console.log(t)*/
+       
+       
+       
+
+
+       /* CURRENT WAY TO PULL IMAGES */
+       /*console.log(dataArray[i]['promotionalMedia']['crops'][0]['renditions'][0]); */
+
+       /* TO PULL THE HEADLINE */
+       /* creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["title"]["$t"]:dataArray["anyWork"]["headline"]["default"], color: "#FFF"};*/
+
+       /* TO PULL IMAGES 
+       /*"creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === 'xml_jsonp_mirror')?dataArray[i]['title']['$t']:dataArray['anyWork']['promotionalMedia']['crops'][2]['renditions'][0]['url']"*/
+
+
+       
+        }
+    }
+}
+
+
 var creativeConfigObj = {
+
+
     // Feed URL should be entered as non-secure.  Function "getFeed" will modify to secrue where required.
     /* feedURL: "http://api.nytimes.com/svc/topstories/v2/home.json?api-key=infrapingkey", */
 
     /* feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1538426419/graphQL_b90jyt.json", */
 
 
-    feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539613411/Rei%20Test%20Creatives/10_15_2018_GraphQL.json", 
+    /*feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539613411/Rei%20Test%20Creatives/10_15_2018_GraphQL.json", */
+
+    /*feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539787290/Rei%20Test%20Creatives/10_17_2018_GraphQL.json",*/
+
+    /*feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539807469/Rei%20Test%20Creatives/10_17_2018_GraphQL2.json",*/
+
+    /*feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539881945/Rei%20Test%20Creatives/10_18_2018_QraphQL.json", */
+
+    feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539972237/Rei%20Test%20Creatives/10_19_2018_QraphQL.json", 
 
     // FeedVersion acceptable values are "json", "xml", "json_jsonp_mirror", "xml_jsonp_mirror".
     feedVersion: "json",
@@ -921,7 +992,7 @@ var creativeConfigObj = {
         //0
         {
             logo: {
-                url:  "creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === 'xml_jsonp_mirror')?dataArray[i]['title']['$t']:dataArray['anyWork']['promotionalMedia']['crops'][2]['renditions'][0]['url']",
+                url:  "",
                 mobileHeight: "40px",
                 desktopHeight: "30px"
             },
@@ -937,7 +1008,7 @@ var creativeConfigObj = {
         //1
         {
             logo: {
-                url:  "https://static01.nyt.com/images/2018/02/26/style/26bachelor-topart-1/26bachelor-1-articleInline.jpg",
+                url:  "",
                 mobileHeight: "40px",
                 desktopHeight: "30px"
             },
@@ -953,7 +1024,7 @@ var creativeConfigObj = {
         //2
         {
             logo: {
-                url:  "https://static01.nyt.com/images/2018/02/26/style/26bachelor-topart-1/26bachelor-1-articleInline.jpg",
+                url:  "",
                 mobileHeight: "40px",
                 desktopHeight: "30px"
             },
@@ -969,7 +1040,7 @@ var creativeConfigObj = {
         //3
         {
             logo: {
-                url:  "https://static01.nyt.com/images/2018/02/26/style/26bachelor-topart-1/26bachelor-1-articleInline.jpg",
+                url:  "",
                 mobileHeight: "40px",
                 desktopHeight: "30px"
             },
@@ -985,7 +1056,7 @@ var creativeConfigObj = {
         //4
         {
             logo: {
-                url:  "https://static01.nyt.com/images/2018/02/26/style/26bachelor-topart-1/26bachelor-1-articleInline.jpg",
+                url:  "",
                 mobileHeight: "40px",
                 desktopHeight: "30px"
             },
@@ -1178,6 +1249,10 @@ function handleReturnedFeedData(data){
 
 // Populate creativeConfigObj.articleFrames with dynamic portions of articles retrieved from feed.
 // Feed data passed to this function can be in the form of JSON or XML
+
+
+
+
 function populateConfigObjArticleFramesWithFeedData(data){
     var dataArray = null;
 
@@ -1196,14 +1271,38 @@ function populateConfigObjArticleFramesWithFeedData(data){
 
         for(var i=0; i<creativeConfigObj.articleFrames.length; i++){
            var t =  creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["promotionalHeadline"]["$t"]:dataArray[i]["promotionalHeadline"], color: "#FFF"};
-            /* creativeConfigObj.articleFrames[i].url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["link"]["$t"]:dataArray[i]["url"]; */
+              
+              creativeConfigObj.articleFrames[i].logo.url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]['promotionalMedia']["$t"]:dataArray[i]['promotionalMedia']['crops'][1]['renditions'][0]['url']; 
+             
+              creativeConfigObj.articleFrames[i].url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["link"]["$t"]:dataArray[i]["url"]; 
+             
+             
+           
+           
             /* creativeConfigObj.articleFrames[i].descriptor = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["description"]["$t"]:dataArray[i]["abstract"], color: "#FFF"}; */
+             
+        
+        if (dataArray[i]['promotionalMedia']['__typename'] !== "Image") {
+
+            /*do something here*/
+        }     
+
+
+
+
+       /*console.log(creativeConfigObj.articleFrames[i]);*/
+
+       console.log(dataArray[i]['promotionalMedia']['crops'][1]['renditions'][0]['url']); 
+      
+       /*console.log(creativeConfigObj.articleFrames.length);*/
        
+       /*console.log(t)*/
+     
        
-       console.log(creativeConfigObj.articleFrames[i]);
-       console.log(creativeConfigObj.articleFrames.length);
-       console.log(t)
-       
+
+
+       /* CURRENT WAY TO PULL IMAGES */
+       /*console.log(dataArray[i]['promotionalMedia']['crops'][0]['renditions'][0]); */
 
        /* TO PULL THE HEADLINE */
        /* creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["title"]["$t"]:dataArray["anyWork"]["headline"]["default"], color: "#FFF"};*/
