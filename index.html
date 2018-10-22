@@ -216,6 +216,17 @@ body{
     z-index: 100;
 }
 
+#desktop_frame_1_logoImg,
+#desktop_frame_2_logoImg, 
+#desktop_frame_3_logoImg, 
+#desktop_frame_4_logoImg, 
+#desktop_frame_5_logoImg {
+    height: 101px;
+    width: 172px;
+}
+
+
+
 #desktopGallery{
     width: 587px;
     height: 208px;
@@ -239,12 +250,12 @@ body{
     left: 3px;
     opacity: 0;
 
-    background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+    /*background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
     background: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 );
 
     -webkit-transition: opacity .25s ease, bottom 0s 0.25s ease;
-    transition: opacity .25s ease, bottom 0s 0.25s ease;
+    transition: opacity .25s ease, bottom 0s 0.25s ease;*/
 }
 #desktopLeftArrowContainer.active{
     bottom: 0%;
@@ -257,9 +268,9 @@ body{
     bottom: 0px;
     right: 0px;
 
-    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+    /*background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
     background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 );*/
 }
 
 #desktopLeftArrowBtn, #desktopRightArrowBtn{
@@ -424,6 +435,8 @@ body{
     /* margin: 25px 0 0 15px; */
 }
 
+
+
 .article_copyContainer{
     width: auto;
     height: auto;
@@ -436,7 +449,7 @@ body{
 }
 .desktop .article_copyContainer{
     max-width: calc(100% - 30px);
-    margin: 25px 15px 25px 15px;
+    margin: 25px 15px 0px 15px;
 }
 
 .article_kicker{
@@ -784,7 +797,7 @@ body{
 /*-----> UNDER 1280px WIDE REMOVE LEFT NAVIGATION ARROW <-----*/
 @media(max-width: 1279px){
     #desktopLeftArrowContainer{
-        display: none;
+        display: block;
 }
 
 </style>
@@ -852,7 +865,7 @@ var templateName = "cf_deluxe_banner_flex_frame_iq_1x1_" + creativeVersion + "_6
 var scrollPos = {x:undefined, y:undefined};
 var adId, rnd, uid, versionID;
 
-var feedCallBackFailsafeTimer; // Vairable to hold timeout for triggering of failsafe
+var feedCallBackFailsafeTimer; // Vairable to hold timeout for tritggering of failsafe
 var failsafeDuration = 3000;   // Duration of time without response from data feed call to triggering of failsafe
 var dataArray; 
 
@@ -869,63 +882,6 @@ var isIE10 = (navigator.userAgent.indexOf("MSIE 10") !== -1)?true:false;
 /*------------------------------*/
 /*-----> TEMPLATE CONFIG  <-----*/
 /*------------------------------*/
-function populateConfigObjArticleFramesWithFeedData(data){
-    var dataArray = null;
-
-    // The below is hard coded to pull specific data from pre determined feed nodes
-    // Any adjustments to the organization of the feeds requires revising the below to match
-    if(creativeConfigObj.feedVersion === "xml"){
-        dataArray = data.getElementsByTagName("item");
-
-        for(var i=0; i<creativeConfigObj.articleFrames.length; i++){
-            creativeConfigObj.articleFrames[i].headline = {copy:dataArray[i].getElementsByTagName("promotionalHeadline")[0].childNodes[0].nodeValue, color: "#FFF"};
-            creativeConfigObj.articleFrames[i].url = dataArray[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
-            creativeConfigObj.articleFrames[i].descriptor = {copy:dataArray[i].getElementsByTagName("description")[0].childNodes[0].nodeValue, color: "#FFF"};
-        }
-    }else{
-        dataArray = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?data["rss"]["channel"]["item"]:data["data"]["anyWorks"];
-
-        for(var i=0; i<creativeConfigObj.articleFrames.length; i++){
-           var t =  creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["promotionalHeadline"]["$t"]:dataArray[i]["promotionalHeadline"], color: "#FFF"};
-             
-              creativeConfigObj.articleFrames[i].url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["link"]["$t"]:dataArray[i]["url"]; 
-            /* creativeConfigObj.articleFrames[i].descriptor = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["description"]["$t"]:dataArray[i]["abstract"], color: "#FFF"}; */
-             
-        
-        if (dataArray[i]['promotionalMedia']['__typename'] !== "Image") {
-
-            /*do something here*/
-        }     
-
-
-
-
-       /*console.log(creativeConfigObj.articleFrames[i]);*/
-
-       console.log(dataArray[i]['promotionalMedia']['crops'][1]['renditions'][0]['url']); 
-      
-       /*console.log(creativeConfigObj.articleFrames.length);*/
-       
-       /*console.log(t)*/
-       
-       
-       
-
-
-       /* CURRENT WAY TO PULL IMAGES */
-       /*console.log(dataArray[i]['promotionalMedia']['crops'][0]['renditions'][0]); */
-
-       /* TO PULL THE HEADLINE */
-       /* creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["title"]["$t"]:dataArray["anyWork"]["headline"]["default"], color: "#FFF"};*/
-
-       /* TO PULL IMAGES 
-       /*"creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === 'xml_jsonp_mirror')?dataArray[i]['title']['$t']:dataArray['anyWork']['promotionalMedia']['crops'][2]['renditions'][0]['url']"*/
-
-
-       
-        }
-    }
-}
 
 
 var creativeConfigObj = {
@@ -945,7 +901,15 @@ var creativeConfigObj = {
 
     /*feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539881945/Rei%20Test%20Creatives/10_18_2018_QraphQL.json", */
 
-    feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539972237/Rei%20Test%20Creatives/10_19_2018_QraphQL.json", 
+    /*feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1539972237/Rei%20Test%20Creatives/10_19_2018_QraphQL.json", */
+
+
+    /*feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1540221547/Rei%20Test%20Creatives/10_22_2018_QraphQL.json",*/
+
+
+    feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1540221982/Rei%20Test%20Creatives/10_22_2018_QraphQL2.json",
+
+
 
     // FeedVersion acceptable values are "json", "xml", "json_jsonp_mirror", "xml_jsonp_mirror".
     feedVersion: "json",
@@ -968,7 +932,7 @@ var creativeConfigObj = {
             url:  "images/heroLogo.png"
         },
         kicker: {
-            copy: "",
+            copy: "yo yo ",
             color: "#CCC"
         },
         headline: {
@@ -993,8 +957,8 @@ var creativeConfigObj = {
         {
             logo: {
                 url:  "",
-                mobileHeight: "40px",
-                desktopHeight: "30px"
+                /*mobileHeight: "40px",*/
+                /*desktopHeight: "30px"*/
             },
             kicker: {
                 copy: "SECTION",
@@ -1009,8 +973,8 @@ var creativeConfigObj = {
         {
             logo: {
                 url:  "",
-                mobileHeight: "40px",
-                desktopHeight: "30px"
+                /*mobileHeight: "40px",*/
+                /*desktopHeight: "30px"*/
             },
             kicker: {
                 copy: "SECTION",
@@ -1025,8 +989,8 @@ var creativeConfigObj = {
         {
             logo: {
                 url:  "",
-                mobileHeight: "40px",
-                desktopHeight: "30px"
+                /*mobileHeight: "40px",*/
+                /*desktopHeight: "30px"*/
             },
             kicker: {
                 copy: "SECTION",
@@ -1041,8 +1005,8 @@ var creativeConfigObj = {
         {
             logo: {
                 url:  "",
-                mobileHeight: "40px",
-                desktopHeight: "30px"
+                /*mobileHeight: "40px",*/
+                /*desktopHeight: "30px"*/
             },
             kicker: {
                 copy: "SECTION",
@@ -1057,8 +1021,8 @@ var creativeConfigObj = {
         {
             logo: {
                 url:  "",
-                mobileHeight: "40px",
-                desktopHeight: "30px"
+                /*mobileHeight: "40px",*/
+                /*desktopHeight: "30px"*/
             },
             kicker: {
                 copy: "SECTION",
@@ -1273,7 +1237,7 @@ function populateConfigObjArticleFramesWithFeedData(data){
            
               creativeConfigObj.articleFrames[i].headline = {copy :(creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["promotionalHeadline"]["$t"]:dataArray[i]["promotionalHeadline"], color: "#FFF"};
               
-              creativeConfigObj.articleFrames[i].logo.url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]['promotionalMedia']["$t"]:dataArray[i]['promotionalMedia']['crops'][1]['renditions'][0]['url']; 
+              var rei = creativeConfigObj.articleFrames[i].logo.url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]['promotionalMedia']["$t"]:dataArray[i]['promotionalMedia']['crops'][0]['renditions'][0]['url']; 
              
               creativeConfigObj.articleFrames[i].url = (creativeConfigObj.feedVersion === "xml_jsonp_mirror")?dataArray[i]["link"]["$t"]:dataArray[i]["url"]; 
              
@@ -1287,11 +1251,9 @@ function populateConfigObjArticleFramesWithFeedData(data){
         }     
 
 
-
+       console.log(rei); 
 
        /*console.log(creativeConfigObj.articleFrames[i]);*/
-
-       console.log(dataArray[i]['promotionalMedia']['crops'][0]['renditions'][0]); 
       
        /*console.log(creativeConfigObj.articleFrames.length);*/
        
@@ -1453,17 +1415,17 @@ function addEventListeners(){
             ie10HitAreas[i].style.display = "block";
         }
 
-        document.getElementById("desktopLeftArrowContainer").addEventListener("mouseenter", showDesktopLeftNav, false);
-        document.getElementById("desktopLeftArrowContainer").addEventListener("mouseleave", hideDesktopLeftNav, false);
+        /*document.getElementById("desktopLeftArrowContainer").addEventListener("mouseenter", showDesktopLeftNav, false);*/
+        /*document.getElementById("desktopLeftArrowContainer").addEventListener("mouseleave", hideDesktopLeftNav, false);*/
 
         document.getElementById("desktopLeftArrowContainer").style.pointerEvents = "auto";
         document.getElementById("desktopRightArrowContainer").style.pointerEvents = "auto";
 
-        document.getElementById("desktopLeftArrowContainerIE10HitArea").addEventListener("click", onIE10LeftArrowContainerClk, false);
-        document.getElementById("desktopRightArrowContainerIE10HitArea").addEventListener("click", onIE10RightArrowContainerClk, false);
+        /*document.getElementById("desktopLeftArrowContainerIE10HitArea").addEventListener("click", onIE10LeftArrowContainerClk, false);
+        document.getElementById("desktopRightArrowContainerIE10HitArea").addEventListener("click", onIE10RightArrowContainerClk, false);*/
     }else{
         document.getElementById("desktopLeftArrowBtn").addEventListener("mouseenter", showDesktopLeftNav, false);
-        document.getElementById("desktopLeftArrowBtn").addEventListener("mouseleave", hideDesktopLeftNav, false);
+        /*document.getElementById("desktopLeftArrowBtn").addEventListener("mouseleave", hideDesktopLeftNav, false);*/
     }
 
     document.getElementById("desktopLeftArrowBtn").addEventListener("click", onDesktopLeftArrowClk, false);
@@ -1619,23 +1581,25 @@ function createHeroFrame(frameNum, layout, bgImgURL, kicker, headline, descripto
 
 function createArticleFrame(frameNum, layout, kicker, headline, descriptor, cta, logo){
     var desktopGalleryFrameWidth = "172.3px";
+    var desktopGalleryFrameHeight = "186.4px";
 
     var frame = document.createElement("div");
     frame.id = layout + "_frame_" + frameNum;
     frame.className = "frame";
     if(layout === "desktop"){
-        /* frame.style.borderLeft = "3px solid #808080"; */
+        
         frame.style.width = desktopGalleryFrameWidth;
+        frame.style.height = desktopGalleryFrameHeight; 
 
         // Left navigation arrow should fade in on mouse hover over the first two left most article frames.
         // Add hover listeners to first two left most articles
         // Add attribure to track listeners status of articles & for update on article navigation
         if(frameNum === 1 || frameNum === 2){
-            /* frame.addEventListener("mouseenter", showDesktopLeftNav, false);
+             frame.addEventListener("mouseenter", showDesktopLeftNav, false);
             frame.addEventListener("mouseleave", hideDesktopLeftNav, false);
-            frame.setAttribute("activateNavigationArrow", "true"); */
+            frame.setAttribute("activateNavigationArrow", "true"); 
         }else{
-            /* frame.setAttribute("activateNavigationArrow", "false"); */
+             frame.setAttribute("activateNavigationArrow", "false"); 
         }
     }
 
@@ -1853,7 +1817,7 @@ function desktopGalleryAnimate(navDirection){
         }else if(elem.getAttribute("activateNavigationArrow") === "true"){
             elem.setAttribute("activateNavigationArrow", "false");
             elem.removeEventListener("mouseenter", showDesktopLeftNav, false);
-            elem.removeEventListener("mouseleave", hideDesktopLeftNav, false);
+            /*elem.removeEventListener("mouseleave", hideDesktopLeftNav, false);*/
         }
     }
 }
