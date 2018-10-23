@@ -228,7 +228,7 @@ body{
 
 
 #desktopGallery{
-    width: 587px;
+    width: 552px;
     height: 208px;
     position: absolute;
     top:11%;
@@ -236,6 +236,7 @@ body{
     left: 553px; */
     box-sizing: border-box;
     overflow: hidden;
+    margin-left: 26px;
 }
 
 #desktopLeftArrowContainer, #desktopRightArrowContainer{
@@ -243,7 +244,7 @@ body{
     height: 100%;
     position: absolute;
     pointer-events: none;
-    z-index: 300;
+    /*z-index: 300;*/
 }
 #desktopLeftArrowContainer{
     bottom: 200%;
@@ -316,8 +317,8 @@ body{
     position: absolute;
     bottom: 0px;
     left: 0px;
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+    /*background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);*/
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 );
 }
 
@@ -408,6 +409,10 @@ body{
     height: 45px;
     max-height: 45px;
     max-width: 145px;
+}
+
+#desktop_frame_1_logoImg {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7xTIRrBZTXVDmpaq9AV4NusmHetBF3zRoVKb63q8Rsh240uSS')!important; 
 }
 
 /* -----> ARTICLES <----- */
@@ -557,7 +562,23 @@ body{
     transform-origin: top right;
 }
 
+#ContentSelected{
+    display: block;
+    right: 0px;
+    position: absolute;
+    margin-right: 252px;
+    top:17px;
+    /*font-family: ProximaNova;*/
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
 
+}
 /*------------------------*/
 /*-----> ANIMATIONS <-----*/
 /*------------------------*/
@@ -758,13 +779,21 @@ body{
 }
 
 
+
+@media screen and (max-width: 1339px){
+#desktopHeroContainer {
+    width: calc(100% - 423px);
+    object-fit: cover;
+}
+}
+
 /*-----> DESKTOP BREAKPOINT ONE (DYNAMICALLY SIZED HERO CONTAINER) <-----*/
 /* TWO MEDIA QUERIES REQUIRED AS NO CSS MIN_LEFT EXISTS FOR GALLERY PLACEMENT @ HERO MIN_WIDTH OF 425PX */
-@media(min-width: 701px) and (max-width: 772px){
+/*@media(min-width: 701px) and (max-width: 772px){
     #desktopHeroContainer{
         width: calc(100% - 347px);
         min-width: 425px;
-    }
+    }*/
 
     #desktopGallery{
         left: 425px;
@@ -795,10 +824,10 @@ body{
 }
 
 /*-----> UNDER 1280px WIDE REMOVE LEFT NAVIGATION ARROW <-----*/
-@media(max-width: 1279px){
+/*@media(max-width: 1279px){
     #desktopLeftArrowContainer{
         display: block;
-}
+}*/
 
 </style>
 
@@ -824,7 +853,10 @@ body{
 			<!-- DESKTOP -->
 			<div id="desktopContainer" class="desktop">
 				<div id="desktopHeroContainer"></div>
-				<div id="desktopGallery">
+                
+                <p id = ContentSelected>Content Selected by <b>BMW</b></p>
+				
+                <div id="desktopGallery">
 					<div id="desktopLeftArrowContainer">
 						<div id="desktopLeftArrowContainerIE10HitArea" class="ie10HitArea"></div>
 						<div id="desktopLeftArrowBtn" class="leftArrowBtn">
@@ -929,10 +961,10 @@ var creativeConfigObj = {
             desktop: "images/img1.jpg"
         },
         logo: {
-            url:  "images/heroLogo.png"
+            url:  "images/white@2x.png"
         },
         kicker: {
-            copy: "yo yo ",
+            copy: "",
             color: "#CCC"
         },
         headline: {
@@ -956,7 +988,7 @@ var creativeConfigObj = {
         //0
         {
             logo: {
-                url:  "",
+                url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7xTIRrBZTXVDmpaq9AV4NusmHetBF3zRoVKb63q8Rsh240uSS",
                 /*mobileHeight: "40px",*/
                 /*desktopHeight: "30px"*/
             },
@@ -1594,15 +1626,20 @@ function createArticleFrame(frameNum, layout, kicker, headline, descriptor, cta,
         // Left navigation arrow should fade in on mouse hover over the first two left most article frames.
         // Add hover listeners to first two left most articles
         // Add attribure to track listeners status of articles & for update on article navigation
+        
+        
         if(frameNum === 1 || frameNum === 2){
-             frame.addEventListener("mouseenter", showDesktopLeftNav, false);
-            frame.addEventListener("mouseleave", hideDesktopLeftNav, false);
-            frame.setAttribute("activateNavigationArrow", "true"); 
+            //  frame.addEventListener("mouseenter", showDesktopLeftNav, false);
+            // frame.addEventListener("mouseleave", hideDesktopLeftNav, false);
+            // frame.setAttribute("activateNavigationArrow", "true"); 
         }else{
-             frame.setAttribute("activateNavigationArrow", "false"); 
+            //  frame.setAttribute("activateNavigationArrow", "false"); 
         }
     }
 
+   
+   
+   
     if(layout === "mobile"){
         if(frameNum >= 2){
             frame.style.webkitTransform = "translateX(100%)";
@@ -1737,7 +1774,7 @@ function setLeftNavActive(){
     document.getElementById("desktopLeftArrowContainer").className = "active";
 }
 function setLeftNavInactive(){
-    document.getElementById("desktopLeftArrowContainer").className = "";
+    document.getElementById("desktopLeftArrowContainer").className = "active";
 }
 
 function desktopGoPrevFrame(){
@@ -1871,8 +1908,9 @@ function fireNounTracking(interaction, noun){
 function showDesktopLeftNav(e){
     setLeftNavActive();
 }
+
 function hideDesktopLeftNav(e){
-    setLeftNavInactive();
+    setLeftNavActive();
 }
 
 
