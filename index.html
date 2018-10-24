@@ -140,9 +140,17 @@ body{
     position: absolute;
     bottom: 0px;
     left: 0px;
-    border-top: 0.5px solid #FFF;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10; 
+    
+    background-color:#000;
 }
+
+#mobile_frame_1{
+    z-index: 10; 
+}
+
+
+
 #mobileFooterHitArea{
     width: 100%;
     height: 100%;
@@ -404,7 +412,7 @@ body{
 }
 .mobile .hero_logo img{
     height: 50px;
-    max-width: 130px;
+    /*max-width: 130px;*/
     max-height: 50px;
 }
 .desktop .hero_logo img{
@@ -436,11 +444,24 @@ body{
     position: absolute;
 }
 .mobile .article_logo{
-    margin: 15px 0 0 15px;
+    /*margin: 15px 0 0 15px;*/
 }
 .desktop .article_logo{
     /* margin: 25px 0 0 15px; */
 }
+
+
+#mobile_frame_2_logoImg, 
+#mobile_frame_3_logoImg,
+#mobile_frame_4_logoImg, 
+#mobile_frame_5_logoImg, 
+#mobile_frame_6_logoImg {
+    width: 426px;
+    height: 300px;
+    /* top: 10px; */
+    margin-top: 31px;
+}
+
 
 
 
@@ -467,6 +488,7 @@ body{
     font-size: 13px;
     line-height: 14px;
     font-family: "Proxima N W02 Smbd";
+    color:white!important
 }
 .desktop .article_kicker{
     font-size: 13px;
@@ -580,6 +602,25 @@ body{
     text-align: center;
     color: #ffffff;
 
+}
+
+#ContentSelectedMobile{
+    position: relative;
+    top: 7px;
+    /* font-family: ProximaNova; */
+    font-size: 13px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    z-index: 9;
+    background: black;
+    height: 25px;
+    margin-top: -7px;
+    padding-top: 6px;
 }
 /*------------------------*/
 /*-----> ANIMATIONS <-----*/
@@ -846,6 +887,7 @@ body{
         <div id="contentContainer">
 			<!-- MOBILE -->
 			<div id="mobileContainer" class="mobile">
+                <p id = ContentSelectedMobile>Content Selected by <b>BMW</b></p>
 				<div id="mobileGallery"></div>
 				<div id="mobileFooter">
 					<div id="navDotsContainer">
@@ -967,7 +1009,7 @@ var creativeConfigObj = {
     // If descriptor is not used, headline may span up to three lines.
     heroFrame: {
         backgroundImageURL: {
-            mobile: "images/hero_mobile.png",
+            mobile: "images/img6.jpg",
             desktop: "images/img1.jpg"
         },
         logo: {
