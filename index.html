@@ -237,6 +237,8 @@ body{
     box-sizing: border-box;
     overflow: hidden;
     margin-left: 26px;
+    right:0px; 
+    margin-right:44px; 
 }
 
 #desktopLeftArrowContainer, #desktopRightArrowContainer{
@@ -533,7 +535,7 @@ body{
     left: 3px;
 }
 .rightArrowBtn{
-    right: 3px;
+    right: 11px;
 }
 .leftArrow, .rightArrow{
     width: 15px;
@@ -566,7 +568,7 @@ body{
     display: block;
     right: 0px;
     position: absolute;
-    margin-right: 252px;
+    margin-right: 246px;
     top:17px;
     /*font-family: ProximaNova;*/
     font-size: 14px;
@@ -780,12 +782,22 @@ body{
 
 
 
-@media screen and (max-width: 1339px){
+@media screen and (max-width: 1598px){
 #desktopHeroContainer {
-    width: calc(100% - 423px);
+    width: calc(100% - 649px);
     object-fit: cover;
 }
 }
+
+
+@media screen and (max-width: 1110px){
+#desktopHeroContainer {
+    width: calc(100% - 649px);
+    object-fit: cover;
+}
+}
+
+
 
 /*-----> DESKTOP BREAKPOINT ONE (DYNAMICALLY SIZED HERO CONTAINER) <-----*/
 /* TWO MEDIA QUERIES REQUIRED AS NO CSS MIN_LEFT EXISTS FOR GALLERY PLACEMENT @ HERO MIN_WIDTH OF 425PX */
@@ -793,12 +805,12 @@ body{
     #desktopHeroContainer{
         width: calc(100% - 347px);
         min-width: 425px;
-    }*/
+    }
 
     #desktopGallery{
         left: 425px;
     }
-}
+}*/
 @media(min-width: 773px) and (max-width: 899px){
     #desktopHeroContainer{
         width: calc(100% - 347px);
@@ -818,9 +830,7 @@ body{
         width: 553px;
     } */
 
-    #desktopGallery{
-        left: 985px;
-    }
+    
 }
 
 /*-----> UNDER 1280px WIDE REMOVE LEFT NAVIGATION ARROW <-----*/
