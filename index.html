@@ -273,8 +273,8 @@ body{
     bottom: 0%;
     opacity: 1;
 
-    -webkit-transition: opacity .25s ease, bottom 0s 0s ease;
-    transition: opacity .25s ease, bottom 0s 0s ease;
+    /*-webkit-transition: opacity .25s ease, bottom 0s 0s ease;
+    transition: opacity .25s ease, bottom 0s 0s ease;*/
 }
 #desktopRightArrowContainer{
     bottom: 0px;
@@ -567,18 +567,20 @@ body{
     top: 50%;
 }
 .leftArrow{
-    left: 12px;
+    left: 19px;
     border-left: 1px solid #4c4c4c;;
     border-top: 1px solid #4c4c4c;;
     -webkit-transform: rotate(-45deg) skew(6deg, 6deg) translate3d(0, 0, 0);
     transform: rotate(-45deg) skew(6deg, 6deg) translate3d(0, 0, 0);
+    margin-top:-7px; 
 
-    -webkit-transform-origin: top left;
-    transform-origin: top left;
+    /*-webkit-transform-origin: top left;
+    transform-origin: top left;*/
 }
 
 .leftArrow:hover{
-    color:#FFF!important;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
 }
 
 
@@ -591,6 +593,11 @@ body{
 
     -webkit-transform-origin: top right;
     transform-origin: top right;
+}
+
+.rightArrow:hover {
+    border-right: 1px solid white;
+    border-top: 1px solid white;
 }
 
 #ContentSelected{
@@ -838,7 +845,7 @@ body{
 }
 
 
-@media screen and (max-width: 1200px){
+@media (min-width:700px) and (max-width: 1200px){
 #desktopHeroContainer {
     width: calc(100% - 435px);
     object-fit: cover;
@@ -853,6 +860,12 @@ body{
 
 #ContentSelected {
     margin-right:153px; 
+}
+
+
+.leftArrowBtn {
+    right:-167px; 
+    left:auto; 
 }
 
 
@@ -995,6 +1008,21 @@ body{
 </div>
 
 <script>
+
+
+
+function myFunction() {
+    // document.getElementsByClassName("rightArrow").style.borderRight = "1px solid white";
+    // document.getElementsByClassName("rightArrow").style.borderTop = "1px solid white";
+    console.log("this is working"); 
+}
+
+
+myFunction(); 
+
+
+
+
 
 /*------------------------*/
 /*-----> VARIABLES  <-----*/
