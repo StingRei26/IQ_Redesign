@@ -258,8 +258,9 @@ body{
 }
 #desktopLeftArrowContainer{
     bottom: 200%;
-    left: 3px;
+    /*left: 3px;*/
     opacity: 0;
+    right:566px; 
 
     /*background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
     background: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
@@ -567,18 +568,24 @@ body{
 }
 .leftArrow{
     left: 12px;
-    border-left: 1px solid #FFF;
-    border-top: 1px solid #FFF;
+    border-left: 1px solid #4c4c4c;;
+    border-top: 1px solid #4c4c4c;;
     -webkit-transform: rotate(-45deg) skew(6deg, 6deg) translate3d(0, 0, 0);
     transform: rotate(-45deg) skew(6deg, 6deg) translate3d(0, 0, 0);
 
     -webkit-transform-origin: top left;
     transform-origin: top left;
 }
+
+.leftArrow:hover{
+    color:#FFF!important;
+}
+
+
 .rightArrow{
     right: 12px;
-    border-right: 1px solid #FFF;
-    border-top: 1px solid #FFF;
+    border-right: 1px solid #4c4c4c;
+    border-top: 1px solid #4c4c4c;
     -webkit-transform: rotate(45deg) skew(-6deg, -6deg) translate3d(0, 0, 0);
     transform: rotate(45deg) skew(-6deg, -6deg) translate3d(0, 0, 0);
 
@@ -956,16 +963,17 @@ body{
 			<!-- DESKTOP -->
 			<div id="desktopContainer" class="desktop">
 				<div id="desktopHeroContainer"></div>
-                
-                <p id = ContentSelected>Content Selected by <b>BMW</b></p>
-				
-                <div id="desktopGallery">
-					<div id="desktopLeftArrowContainer">
+                <div id="desktopLeftArrowContainer">
 						<div id="desktopLeftArrowContainerIE10HitArea" class="ie10HitArea"></div>
 						<div id="desktopLeftArrowBtn" class="leftArrowBtn">
 							<div class="leftArrow"></div>
 						</div>
 					</div>
+                
+                <p id = ContentSelected>Content Selected by <b>BMW</b></p>
+				
+                <div id="desktopGallery">
+					
 				</div>
 				<div id="desktopRightArrowContainer">
 					<div id="desktopRightArrowContainerIE10HitArea" class="ie10HitArea"></div>
