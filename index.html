@@ -231,7 +231,36 @@ body{
 #desktop_frame_5_logoImg {
     height: 101px;
     width: 172px;
+-webkit-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
+-moz-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
+box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
 }
+
+
+#desktop_frame_1, 
+#desktop_frame_2,
+#desktop_frame_3,
+#desktop_frame_4,
+#desktop_frame_5,
+#desktop_frame_6
+{
+-webkit-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
+-moz-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
+box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
+    
+}
+
+#desktop_frame_1.frame
+#desktop_frame_2.frame,
+#desktop_frame_3.frame,
+#desktop_frame_4.frame,
+#desktop_frame_5.frame,
+#desktop_frame_6.frame
+{
+
+    
+}
+
 
 
 
@@ -294,12 +323,27 @@ body{
 /* -------------------- */
 
 .genClk, .frameClk, .ie10HitArea{
-    width: 100%;
+    /*width: 100%;
     height: 100%;
     position: absolute;
     top: 0px;
-    left: 0px;
+    left: 0px;      */
 }
+
+#desktop_frame_1_click, 
+#desktop_frame_2_click, 
+#desktop_frame_3_click, 
+#desktop_frame_4_click, 
+#desktop_frame_5_click, 
+#desktop_frame_6_click {
+-webkit-box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
+box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
+
+   
+}
+
+
 .ie10HitArea{
     display: none;
     background-color: rgba(0,0,0,0.001);
@@ -314,12 +358,12 @@ body{
     height: 100%;
     position: absolute;
     bottom: 0px;
-    left: 0px;
+    /*left: 4px;*/
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color:#4c4c4c;
-    border-right:12px solid #252525;
+    background-color: #4c4c4c;
+    border-right: 19px solid #252525;
 }
 
 .grad{
@@ -558,7 +602,7 @@ body{
     left: 3px;
 }
 .rightArrowBtn{
-    right: 11px;
+    right: 5px;
 }
 .leftArrow, .rightArrow{
     width: 15px;
@@ -568,8 +612,8 @@ body{
 }
 .leftArrow{
     left: 19px;
-    border-left: 1px solid #4c4c4c;;
-    border-top: 1px solid #4c4c4c;;
+    border-left: 2px solid #4c4c4c;;
+    border-top: 2px solid #4c4c4c;
     -webkit-transform: rotate(-45deg) skew(6deg, 6deg) translate3d(0, 0, 0);
     transform: rotate(-45deg) skew(6deg, 6deg) translate3d(0, 0, 0);
     margin-top:-7px; 
@@ -586,8 +630,8 @@ body{
 
 .rightArrow{
     right: 12px;
-    border-right: 1px solid #4c4c4c;
-    border-top: 1px solid #4c4c4c;
+    border-right: 2px solid #4c4c4c;
+    border-top: 2px solid #4c4c4c;
     -webkit-transform: rotate(45deg) skew(-6deg, -6deg) translate3d(0, 0, 0);
     transform: rotate(45deg) skew(-6deg, -6deg) translate3d(0, 0, 0);
 
@@ -847,16 +891,13 @@ body{
 
 @media (min-width:700px) and (max-width: 1200px){
 #desktopHeroContainer {
-    width: calc(100% - 435px);
+    width: calc(100% - 443px);
     object-fit: cover;
 }
 
-/*#desktopGallery {
-
-    width: calc(100% - 649px);
-    object-fit: cover;
-
-}*/
+.leftArrow{
+    left:12px;
+}
 
 #ContentSelected {
     margin-right:153px; 
@@ -872,7 +913,7 @@ body{
 
 }
 
-@media screen and (max-width: 850px){
+@media (min-width:700px) and (max-width: 850px){
 #desktopHeroContainer {
     width: calc(100% - 241px);
     object-fit: cover;
@@ -889,12 +930,23 @@ body{
 #desktop_frame_3,
 #desktop_frame_4,
 #desktop_frame_5,
-#desktop_frame_6
-
-{
+#desktop_frame_6{
  left:10px;
 
 }
+
+
+
+.leftArrowBtn{
+    right:-367px; 
+    left:auto; 
+}
+
+
+
+
+
+
 
 
 }
@@ -986,8 +1038,10 @@ body{
                 <p id = ContentSelected>Content Selected by <b>BMW</b></p>
 				
                 <div id="desktopGallery">
+                    
 					
 				</div>
+                
 				<div id="desktopRightArrowContainer">
 					<div id="desktopRightArrowContainerIE10HitArea" class="ie10HitArea"></div>
 					<div id="desktopRightArrowBtn" class="rightArrowBtn">
@@ -1189,21 +1243,21 @@ var creativeConfigObj = {
             }
         },
         //4
-        {
-            logo: {
-                url:  "",
-                /*mobileHeight: "40px",*/
-                /*desktopHeight: "30px"*/
-            },
-            kicker: {
-                copy: "SECTION",
-                color: "#CCC"
-            },
-            cta: {
-                copy: "",
-                color: "#4990E2"
-            }
-        }
+        // {
+        //     logo: {
+        //         url:  "",
+        //         /*mobileHeight: "40px",*/
+        //         /*desktopHeight: "30px"*/
+        //     },
+        //     kicker: {
+        //         copy: "SECTION",
+        //         color: "#CCC"
+        //     },
+        //     cta: {
+        //         copy: "",
+        //         color: "#4990E2"
+        //     }
+        // }
         
         /*{
             logo: {
