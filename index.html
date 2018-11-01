@@ -203,7 +203,7 @@ body{
     bottom: -118px;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    left:118px; 
+    left:274px; 
 }
 .navDot{
     width: 6px;
@@ -214,6 +214,17 @@ body{
     border-radius: 50%;
     pointer-events: none;
 }
+
+.navDot2{
+    width: 6px;
+    height: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+    float: left;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
 .navDotActive{
     background-color: #FFF;
 
@@ -1714,7 +1725,7 @@ function createFramesMobile(heroFrameObj, articleFramesObj){
     
 }
 
-// Nav dots display on mobile only
+// NAV CODE FOR MOBILE
 function createNavDots(totalNumDots){
     var totalDotsIsEvemNum = (totalNumDots%2 === 0)?true:false;
 
@@ -1760,15 +1771,15 @@ function createNavDots2(totalNumDots){
     for(var i=0; i<totalNumDots; i++){
         document.getElementById("navDots2").appendChild(createNavDot2(i+1));
     }
-    document.getElementsByClassName("navDot")[0].className = "navDot navDotActive";
+    document.getElementsByClassName("navDot2")[0].className = "navDot2 navDotActive";
 }
 
 function createNavDot2(dotNum){
-    var dot = document.createElement("div");
-    dot.id = "navDot_" + dotNum;
-    dot.className = "navDot navDotInactive";
+    var dot2 = document.createElement("div");
+    dot2.id = "navDotD_" + dotNum;
+    dot2.className = "navDot2 navDotInactive";
 
-    return dot;
+    return dot2;
 }
 
 
@@ -2012,6 +2023,8 @@ function updateNavDots(frame){
     document.getElementById("navDot_" + frame).className = "navDot navDotActive";
 }
 
+
+
 /*-----> DESKTOP NAV <-----*/
 function setLeftNavActive(){
     document.getElementById("desktopLeftArrowContainer").className = "active";
@@ -2030,8 +2043,10 @@ function desktopGoPrevFrame(){
     desktopGalleryAnimate("prev");
 
 	desktopCurrentGalleryFrame = nextFrame;
-    // updateNavDots(desktopCurrentGalleryFrame);
+    updateNavDots2(desktopCurrentGalleryFrame);
 }
+
+
 function desktopGoNextFrame(){
     var nextFrame = desktopCurrentGalleryFrame + 1;
 
@@ -2042,7 +2057,20 @@ function desktopGoNextFrame(){
     desktopGalleryAnimate("next");
 
     desktopCurrentGalleryFrame = nextFrame;
+    updateNavDots2(desktopCurrentGalleryFrame);
+
+
 }
+
+
+function updateNavDots2(frame){
+    document.getElementsByClassName("navDotActive")[0].className = "navDot2 navDotInactive";
+    document.getElementById("navDotD_" + frame).className = "navDot2 navDotActive";
+}
+
+
+
+
 
 function updateDesktopGalleryPosTrackerArr(navDirection){
     var temp;
@@ -2107,7 +2135,7 @@ function introAnim(){
     // Add listener to kill animation on UI
     document.addEventListener("mousedown", setStopAnim, false);
 
-    var stopAnim = false;
+    var stopAnim = true;
     var count = 0;
     var totalSteps = 3;
 
