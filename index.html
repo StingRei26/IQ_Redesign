@@ -326,9 +326,9 @@ box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
     /*z-index: 300;*/
 }
 #desktopLeftArrowContainer{
-    bottom: 200%;
+    /*bottom: 200%;
     /*left: 3px;*/
-    opacity: 0;
+    /*opacity: 0;*/
     right:566px; 
 
     /*background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
@@ -384,10 +384,10 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
 }
 
 
-.ie10HitArea{
+/*.ie10HitArea{
     display: none;
     background-color: rgba(0,0,0,0.001);
-}
+}*/
 
 /* -----> FRAMES <----- */
 /* -------------------- */
@@ -1070,7 +1070,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
 			<div id="desktopContainer" class="desktop">
 				<div id="desktopHeroContainer"></div>
                 <div id="desktopLeftArrowContainer">
-						<div id="desktopLeftArrowContainerIE10HitArea" class="ie10HitArea"></div>
+						<!--<div id="desktopLeftArrowContainerIE10HitArea" class="ie10HitArea"></div>-->
 						<div id="desktopLeftArrowBtn" class="leftArrowBtn">
 							<div class="leftArrow"></div>
 						</div>
@@ -2029,10 +2029,13 @@ function updateNavDots(frame){
 
 /*-----> DESKTOP NAV <-----*/
 function setLeftNavActive(){
-    document.getElementById("desktopLeftArrowContainer").className = "active";
+    document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
+    console.log("this is working"); 
 }
+
 function setLeftNavInactive(){
-    document.getElementById("desktopLeftArrowContainer").className = "active";
+    document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
+    console.log("this is working"); 
 }
 
 function desktopGoPrevFrame(){
@@ -2466,7 +2469,7 @@ window.addEventListener("load", checkIfAdKitReady);
 
 
 // Notes
-// continue working on line 2047
+// continue working on line 2031
 
 
 
