@@ -271,9 +271,9 @@ body{
 #desktop_frame_5_logoImg {
     height: 101px;
     width: 172px;
--webkit-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
+/*-webkit-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
 -moz-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
+box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);*/
 }
 
 
@@ -284,9 +284,9 @@ box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
 #desktop_frame_5,
 #desktop_frame_6
 {
--webkit-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
+/*-webkit-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
 -moz-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
+box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);*/
     
 }
 
@@ -313,9 +313,9 @@ box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
     left: 553px; */
     box-sizing: border-box;
     overflow: hidden;
-    margin-left: 26px;
+    /*margin-left: 26px;*/
     right:0px; 
-    margin-right:44px; 
+    margin-right:47px; 
 }
 
 #desktopLeftArrowContainer, #desktopRightArrowContainer{
@@ -376,9 +376,9 @@ box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
 #desktop_frame_4_click, 
 #desktop_frame_5_click, 
 #desktop_frame_6_click {
--webkit-box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
+/*-webkit-box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
 -moz-box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
-box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
+box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 
    
 }
@@ -541,7 +541,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
 #mobile_frame_4_logoImg, 
 #mobile_frame_5_logoImg, 
 #mobile_frame_6_logoImg {
-    width: 426px;
+    width: 100%;
     height: 300px;
     /* top: 10px; */
     margin-top: 31px;
@@ -688,7 +688,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
     display: block;
     right: 0px;
     position: absolute;
-    margin-right: 246px;
+    margin-right: 244px;
     top:17px;
     /*font-family: ProximaNova;*/
     font-size: 14px;
@@ -967,7 +967,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
 }
 
 #ContentSelected {
-    margin-right: 52px;
+    margin-right: 47px;
 
 }
 
@@ -987,6 +987,15 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
     right:-367px; 
     left:auto; 
 }
+
+
+#navDots2{
+    right:57px; 
+}
+
+
+
+
 
 
 }
@@ -1106,14 +1115,14 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);
 
 
 
-function myFunction() {
-    // document.getElementsByClassName("rightArrow").style.borderRight = "1px solid white";
-    // document.getElementsByClassName("rightArrow").style.borderTop = "1px solid white";
-    console.log("this is working"); 
-}
+// function myFunction() {
+//     // document.getElementsByClassName("rightArrow").style.backgroundColor = "white";
+//     // document.getElementsByClassName("rightArrow").style.backgroundColor = "white";
+//     console.log("this is working"); 
+// }
 
 
-myFunction(); 
+// myFunction(); 
 
 
 
@@ -1175,7 +1184,7 @@ var creativeConfigObj = {
 
     feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1540221982/Rei%20Test%20Creatives/10_22_2018_QraphQL2.json",
 
-
+    feedURL: "https://res.cloudinary.com/nyt-platforms/raw/upload/v1541173471/Rei%20Test%20Creatives/11_02_2018_GraphQL.json",
 
     // FeedVersion acceptable values are "json", "xml", "json_jsonp_mirror", "xml_jsonp_mirror".
     feedVersion: "json",
@@ -2028,15 +2037,15 @@ function updateNavDots(frame){
 
 
 /*-----> DESKTOP NAV <-----*/
-function setLeftNavActive(){
-    document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
-    console.log("this is working"); 
-}
+// function setLeftNavActive(){
+//     document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
+    
+// }
 
-function setLeftNavInactive(){
-    document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
-    console.log("this is working"); 
-}
+// function setLeftNavInactive(){
+//     document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
+    
+// }
 
 function desktopGoPrevFrame(){
     var nextFrame = desktopCurrentGalleryFrame - 1;
