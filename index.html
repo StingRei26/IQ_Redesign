@@ -284,10 +284,9 @@ box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);*/
 #desktop_frame_5,
 #desktop_frame_6
 {
-/*-webkit-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
--moz-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);
-box-shadow: inset 0px 0px 7px 2px rgba(0,0,0,0.68);*/
-    
+-webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.92);
+-moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.92);
+box-shadow:  0 2px 10px 0 rgba(0, 0, 0, 0.92);
 }
 
 #desktop_frame_1.frame
@@ -403,7 +402,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
     background-position: center;
     background-size: cover;
     background-color: #4c4c4c;
-    border-right: 19px solid #252525;
+    /*border-right: 19px solid transparent;*/
 }
 
 .grad{
@@ -868,6 +867,10 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
     .mobile .article_descriptor{
         font-size: 13px;
         line-height: 16px;
+    }
+
+    .article_copyContainer{
+        top:
     }
 }
 
@@ -2481,20 +2484,20 @@ window.addEventListener("load", checkIfAdKitReady);
 
 // Notes
 
-
+// The below makes the left arrow turn white them the right ones clicked
 
 document.getElementsByClassName("rightArrowBtn")[1].addEventListener("click", function(){
 document.getElementsByClassName("leftArrow")[1].style.borderLeft = "1px solid white"; 
 document.getElementsByClassName("leftArrow")[1].style.borderTop = "1px solid white"; 
 });
 
-
 document.getElementsByClassName("rightArrowBtn")[0].addEventListener("click", function(){
 document.getElementsByClassName("leftArrow")[0].style.borderLeft = "1px solid white"; 
 document.getElementsByClassName("leftArrow")[0].style.borderTop = "1px solid white"; 
-console.log("is this working"); 
-
 });
+
+
+
 
 
 </script>
