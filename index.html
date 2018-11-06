@@ -554,7 +554,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
     width: auto;
     height: auto;
     position: absolute;
-    bottom: 0px;
+    top: 84px;
 }
 .mobile .article_copyContainer{
     max-width: calc(100% - 30px);
@@ -652,8 +652,8 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 }
 .leftArrow{
     left: 19px;
-    border-left: 2px solid #4c4c4c;;
-    border-top: 2px solid #4c4c4c;
+    border-left: 1px solid #4c4c4c;;
+    border-top: 1px solid #4c4c4c;
     -webkit-transform: rotate(-45deg) skew(6deg, 6deg) translate3d(0, 0, 0);
     transform: rotate(-45deg) skew(6deg, 6deg) translate3d(0, 0, 0);
     margin-top:-7px; 
@@ -670,8 +670,8 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 
 .rightArrow{
     right: 12px;
-    border-right: 2px solid #4c4c4c;
-    border-top: 2px solid #4c4c4c;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
     -webkit-transform: rotate(45deg) skew(-6deg, -6deg) translate3d(0, 0, 0);
     transform: rotate(45deg) skew(-6deg, -6deg) translate3d(0, 0, 0);
 
@@ -995,9 +995,6 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 
 
 
-
-
-
 }
 
 
@@ -1115,14 +1112,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 
 
 
-// function myFunction() {
-//     // document.getElementsByClassName("rightArrow").style.backgroundColor = "white";
-//     // document.getElementsByClassName("rightArrow").style.backgroundColor = "white";
-//     console.log("this is working"); 
-// }
 
-
-// myFunction(); 
 
 
 
@@ -1705,7 +1695,6 @@ function addEventListeners(){
 
     document.getElementById("desktopLeftArrowBtn").addEventListener("click", onDesktopLeftArrowClk, false);
     document.getElementById("desktopRightArrowBtn").addEventListener("click", onDesktopRightArrowClk, false);
-
     document.getElementById("mobileFooterHitArea").addEventListener("click", onMobileFrameClk, false);
 
     var bgClks = document.getElementsByClassName("genClk");
@@ -2037,15 +2026,30 @@ function updateNavDots(frame){
 
 
 /*-----> DESKTOP NAV <-----*/
-// function setLeftNavActive(){
-//     document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
-    
-// }
 
-// function setLeftNavInactive(){
-//     document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
+
+// rArrow.addEventListener("click", function(){
+
+// document.querySelector("leftArrowBtn").style.display = "none"; 
+
+// console.log("this is working"); 
+
+// }); 
+
+
+
+
+
+
+function setLeftNavActive(){
+    document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
     
-// }
+}
+
+function setLeftNavInactive(){
+    document.getElementById("desktopLeftArrowContainer").style.display = "block"; 
+    
+}
 
 function desktopGoPrevFrame(){
     var nextFrame = desktopCurrentGalleryFrame - 1;
@@ -2217,6 +2221,7 @@ function onDesktopRightArrowClk(e){
     EB.userActionCounter('Next_Frame');
     desktopGoNextFrame();
 }
+
 
 /*-----> CLICK OUTS <-----*/
 function onHeroLogoClk(e){
@@ -2474,18 +2479,22 @@ End HTML5 Event System - Do Not Modify
 
 window.addEventListener("load", checkIfAdKitReady);
 
-
-
-
 // Notes
-// continue working on line 2031
 
 
 
+document.getElementsByClassName("rightArrowBtn")[1].addEventListener("click", function(){
+document.getElementsByClassName("leftArrow")[1].style.borderLeft = "1px solid white"; 
+document.getElementsByClassName("leftArrow")[1].style.borderTop = "1px solid white"; 
+});
 
 
+document.getElementsByClassName("rightArrowBtn")[0].addEventListener("click", function(){
+document.getElementsByClassName("leftArrow")[0].style.borderLeft = "1px solid white"; 
+document.getElementsByClassName("leftArrow")[0].style.borderTop = "1px solid white"; 
+console.log("is this working"); 
 
-
+});
 
 
 </script>
