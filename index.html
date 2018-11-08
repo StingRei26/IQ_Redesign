@@ -301,8 +301,6 @@ box-shadow:  0 2px 10px 0 rgba(0, 0, 0, 0.92);
 }
 
 
-
-
 #desktopGallery{
     width: 552px;
     height: 208px;
@@ -313,8 +311,8 @@ box-shadow:  0 2px 10px 0 rgba(0, 0, 0, 0.92);
     box-sizing: border-box;
     overflow: hidden;
     /*margin-left: 26px;*/
-    right:0px; 
-    margin-right:47px; 
+    
+    right:47px; 
 }
 
 #desktopLeftArrowContainer, #desktopRightArrowContainer{
@@ -1798,7 +1796,7 @@ function populateDesktopGalleryFramePosArr(totalNumFrames){
     }
 
     // position the last frame to the left of the gallery for smooth animation on nav to previous
-    document.getElementById(desktopGalleryFramePosArr[desktopGalleryFramePosArr.length-1]).style.webkitTransform = "translateX(-100%)";
+    document.getElementById(desktopGalleryFramePosArr[desktopGalleryFramePosArr.length-1]).style.webkitTransform = "translateX(calc(-100%)";
     document.getElementById(desktopGalleryFramePosArr[desktopGalleryFramePosArr.length-1]).style.transform = "translateX(-100%)";
 
     // Shift desktopTotalGalleryFrames forward once to match positions
@@ -1874,6 +1872,9 @@ function createHeroFrame(frameNum, layout, bgImgURL, kicker, headline, descripto
 function createArticleFrame(frameNum, layout, kicker, headline, descriptor, cta, logo){
     var desktopGalleryFrameWidth = "172.3px";
     var desktopGalleryFrameHeight = "186.4px";
+    // var desktopGalleryFrameMraginLeft = "10px"; 
+    // var displayline = "inline-block"; 
+  
 
     var frame = document.createElement("div");
     frame.id = layout + "_frame_" + frameNum;
@@ -1882,6 +1883,9 @@ function createArticleFrame(frameNum, layout, kicker, headline, descriptor, cta,
         
         frame.style.width = desktopGalleryFrameWidth;
         frame.style.height = desktopGalleryFrameHeight; 
+        // frame.style.marginLeft = desktopGalleryFrameMraginLeft; 
+        // frame.style.display = displayline; 
+
 
         // Left navigation arrow should fade in on mouse hover over the first two left most article frames.
         // Add hover listeners to first two left most articles
