@@ -309,10 +309,10 @@ box-shadow:  0 2px 10px 0 rgba(0, 0, 0, 0.92);
     /* bottom: 0px;
     left: 553px; */
     box-sizing: border-box;
-    overflow: hidden;
+    /*overflow: hidden;*/
     /*margin-left: 26px;*/
-    
-    right:47px; 
+    z-index: 999; 
+    right:351px; 
 }
 
 #desktopLeftArrowContainer, #desktopRightArrowContainer{
@@ -636,7 +636,8 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
     pointer-event: auto;
 }
 .leftArrowBtn{
-    left: 3px;
+    left: -639px;
+    z-index: 1000; 
 }
 .rightArrowBtn{
     right: 5px;
@@ -967,6 +968,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 
 }
 
+
 #ContentSelected {
     margin-right: 47px;
 
@@ -1006,11 +1008,21 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 
 #navDots2 {
     display: none; 
+
+
 }
 
 }
 
+/*THIS MAKES THE UNIT MOBILE ONLY */
 
+@media screen and (min-width:700px){
+
+#adWrapper{
+    display:none; 
+}
+
+}
 /*-----> DESKTOP BREAKPOINT ONE (DYNAMICALLY SIZED HERO CONTAINER) <-----*/
 /* TWO MEDIA QUERIES REQUIRED AS NO CSS MIN_LEFT EXISTS FOR GALLERY PLACEMENT @ HERO MIN_WIDTH OF 425PX */
 /*@media(min-width: 701px) and (max-width: 772px){
