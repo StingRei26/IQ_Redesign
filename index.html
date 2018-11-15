@@ -136,7 +136,7 @@ body{
 
 #mobileFooter{
     width: 100%;
-    height: 49px;
+    height: 45px;
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -539,9 +539,9 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 #mobile_frame_5_logoImg, 
 #mobile_frame_6_logoImg {
     width: 100%;
-    height: 300px;
+    height: 298px;
     /* top: 10px; */
-    margin-top: 31px;
+    margin-top: 37px;
 }
 
 
@@ -551,7 +551,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
     width: auto;
     height: auto;
     position: absolute;
-    top: 84px;
+    bottom: -16px; 
 }
 .mobile .article_copyContainer{
     max-width: calc(100% - 30px);
@@ -636,7 +636,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
     pointer-event: auto;
 }
 .leftArrowBtn{
-    left: -639px;
+    /*left: -639px;*/
     z-index: 1000; 
 }
 .rightArrowBtn{
@@ -702,7 +702,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 
 #ContentSelectedMobile{
     position: relative;
-    top: 7px;
+    /*top: 7px;*/
     /* font-family: ProximaNova; */
     font-size: 13px;
     font-weight: 400;
@@ -714,10 +714,17 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
     color: #ffffff;
     z-index: 9;
     background: black;
-    height: 25px;
-    margin-top: -7px;
-    padding-top: 6px;
+    height: 37px;
+    /*margin-top: -7px;*/
+    /*padding-top: 6px;*/
 }
+
+
+#ContentSelectedMobile p {
+    padding-top: 10px;
+}
+
+
 /*------------------------*/
 /*-----> ANIMATIONS <-----*/
 /*------------------------*/
@@ -1070,8 +1077,12 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
         <div id="contentContainer">
 			<!-- MOBILE -->
 			<div id="mobileContainer" class="mobile">
-                <p id = ContentSelectedMobile>Content Selected by <b>BMW</b></p>
-				<div id="mobileGallery"></div>
+                <div id = ContentSelectedMobile>
+                    
+                  <p>Content Selected by <b>BMW</b></p>
+				
+                </div>
+                <div id="mobileGallery"></div>
 				<div id="mobileFooter">
 					<div id="navDotsContainer">
 		                <div id="navDots"></div>
