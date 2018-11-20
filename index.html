@@ -360,11 +360,11 @@ box-shadow:  0 2px 10px 0 rgba(0, 0, 0, 0.92);
 /* -------------------- */
 
 .genClk, .frameClk, .ie10HitArea{
-    /*width: 100%;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0px;
-    left: 0px;      */
+    left: 0px;      
 }
 
 #desktop_frame_1_click, 
@@ -542,8 +542,25 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
     height: 298px;
     /* top: 10px; */
     margin-top: 37px;
+    /*background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%)!important;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%)!important;*/
+
 }
 
+
+#mobile_frame_2_logoImg, 
+#mobile_frame_3_logoImg,
+#mobile_frame_4_logoImg, 
+#mobile_frame_5_logoImg, 
+#mobile_frame_6_logoImg ::after{
+  display: block;
+  position: relative;
+  /*background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%)!important;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%)!important;*/
+  
+  width: 100%;
+  content: '';  
+}
 
 
 
@@ -556,7 +573,17 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
 .mobile .article_copyContainer{
     max-width: calc(100% - 30px);
     margin: 15px 15px 65px 15px;
+    /*background: -webkit-radial-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.62) 100%)!important;
+    background: radial-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.62) 100%)!important;*/
 }
+
+.mobile .article_copyContainer::after{
+background: -webkit-radial-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.62) 100%)!important;
+    background: radial-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.62) 100%)!important;
+
+}
+
+
 .desktop .article_copyContainer{
     max-width: calc(100% - 30px);
     margin: 25px 15px 0px 15px;
@@ -876,7 +903,7 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
     }
 
     .article_copyContainer{
-        top:
+        top:"";
     }
 }
 
@@ -1082,7 +1109,9 @@ box-shadow: inset 0px -1px 0px 5px rgba(0,0,0,1);*/
                   <p>Content Selected by <b>BMW</b></p>
 				
                 </div>
+                <div class="grad"></div>
                 <div id="mobileGallery"></div>
+                
 				<div id="mobileFooter">
 					<div id="navDotsContainer">
 		                <div id="navDots"></div>
@@ -1710,8 +1739,8 @@ function addEventListeners(){
         document.getElementById("desktopLeftArrowContainer").style.pointerEvents = "auto";
         document.getElementById("desktopRightArrowContainer").style.pointerEvents = "auto";
 
-        /*document.getElementById("desktopLeftArrowContainerIE10HitArea").addEventListener("click", onIE10LeftArrowContainerClk, false);
-        document.getElementById("desktopRightArrowContainerIE10HitArea").addEventListener("click", onIE10RightArrowContainerClk, false);*/
+        document.getElementById("desktopLeftArrowContainerIE10HitArea").addEventListener("click", onIE10LeftArrowContainerClk, false);
+        document.getElementById("desktopRightArrowContainerIE10HitArea").addEventListener("click", onIE10RightArrowContainerClk, false);
     }else{
         document.getElementById("desktopLeftArrowBtn").addEventListener("mouseenter", showDesktopLeftNav, false);
         /*document.getElementById("desktopLeftArrowBtn").addEventListener("mouseleave", hideDesktopLeftNav, false);*/
@@ -1916,11 +1945,11 @@ function createArticleFrame(frameNum, layout, kicker, headline, descriptor, cta,
         
         
         if(frameNum === 1 || frameNum === 2){
-            //  frame.addEventListener("mouseenter", showDesktopLeftNav, false);
-            // frame.addEventListener("mouseleave", hideDesktopLeftNav, false);
-            // frame.setAttribute("activateNavigationArrow", "true"); 
+             frame.addEventListener("mouseenter", showDesktopLeftNav, false);
+            frame.addEventListener("mouseleave", hideDesktopLeftNav, false);
+            frame.setAttribute("activateNavigationArrow", "true"); 
         }else{
-            //  frame.setAttribute("activateNavigationArrow", "false"); 
+             frame.setAttribute("activateNavigationArrow", "false"); 
         }
     }
 
